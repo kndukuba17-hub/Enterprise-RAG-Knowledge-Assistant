@@ -1,0 +1,8 @@
+# Enterprise RAG Knowledge Assistant — dependencies
+langchain>=0.2
+langchain-community>=0.2
+langchain-huggingface>=0.0.3
+langchain-text-splitters>=0.2
+faiss-cpu>=1.7
+sentence-transformers>=2.2
+jupyter>=1.0

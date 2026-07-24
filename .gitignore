@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local vector stores / models / knowledge base
+data/*.pdf
+data/*.txt
+*.faiss
+faiss_index/
+
+# OS
+.DS_Store
