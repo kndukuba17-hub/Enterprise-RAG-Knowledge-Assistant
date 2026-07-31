@@ -1,4 +1,4 @@
-# 🔎 Enterprise RAG Knowledge Assistant — Retrieval Engine
+# Enterprise RAG Knowledge Assistant — Retrieval Engine
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C)
@@ -12,24 +12,24 @@ A semantic-search knowledge assistant that lets staff query internal policy docu
 
 ---
 
-## 🎯 The problem
+## The problem
 In large retail/corporate environments, operational knowledge is buried across long policy handbooks and ESG compliance documents. Keyword search (`Ctrl+F`) fails when staff don't use the document's exact wording. Semantic retrieval matches on *meaning* instead.
 
-## ⚙️ How it works
+## How it works
 1. **Chunking** — a policy document is split with LangChain's `RecursiveCharacterTextSplitter` (300-char chunks, 50-char overlap) so context isn't cut mid-sentence.
 2. **Embeddings** — each chunk is encoded with the open-source `sentence-transformers/all-MiniLM-L6-v2` model into a dense vector.
 3. **Vector index** — vectors are stored in a local **FAISS** index for fast similarity search.
 4. **Semantic retrieval** — a user query is embedded and compared by cosine distance; the top-k most relevant passages are returned with their source.
 
-## 🧰 Tech Stack
+## Tech Stack
 Python · LangChain · FAISS · HuggingFace `sentence-transformers` · Recursive character chunking
 
-## 📌 About the source document
-The knowledge base is a **sample "Retail Operations & ESG Compliance" document** written for this demo, so no proprietary company data is exposed. The pipeline is document-agnostic — point it at a real PDF/handbook and it works unchanged. This is stated openly rather than presented as production data.
+## About the source document
+The knowledge base is a **sample "Retail Operations & ESG Compliance" document** written for this demo, so no proprietary company data is exposed. The pipeline is document-agnostic — point it at a real PDF/handbook and it works unchanged.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 ```
 ├── README.md
 ├── requirements.txt
@@ -41,7 +41,7 @@ The knowledge base is a **sample "Retail Operations & ESG Compliance" document**
 └── docs/
 ```
 
-## 🚀 How to Run
+## How to Run
 ```bash
 git clone https://github.com/kndukuba17-hub/Generative-AI-RAG-Pipeline.git
 cd Generative-AI-RAG-Pipeline
@@ -50,7 +50,7 @@ jupyter notebook notebooks/enterprise_rag_knowledge_assistant.ipynb
 ```
 The first run downloads the MiniLM embedding model (a few hundred MB). Runs on Jupyter or Google Colab.
 
-## 🗺️ Roadmap (to make this a full RAG system)
+## Roadmap (to make this a full RAG system)
 - **Generation step:** inject retrieved chunks into an LLM prompt (e.g. an open model via HuggingFace, or the Claude/OpenAI API) so the assistant returns a written, cited answer.
 - **Real documents:** load actual PDFs with a document loader instead of the sample handbook.
 - **Evaluation:** add retrieval metrics (hit-rate / MRR) on a small labelled question set.
